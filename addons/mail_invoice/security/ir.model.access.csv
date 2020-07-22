@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mail_invoice_mail_invoice,access_mail_invoice_mail_invoice,model_mail_invoice_mail_invoice,base.group_user,1,1,1,1
+access_mail_invoice_mail,access_mail_invoice_mail,model_mail_invoice_mail,base.group_user,1,1,1,1
