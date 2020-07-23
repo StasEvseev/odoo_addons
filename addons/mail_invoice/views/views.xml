@@ -28,6 +28,18 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="mail_invoice.action_window_invoices">
+      <field name="name">mail window</field>
+      <field name="res_model">mail_invoice.invoice</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mail_invoice.action_window_invoice_items">
+      <field name="name">mail window</field>
+      <field name="res_model">mail_invoice.invoice_item</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
 
     <!-- server action to the one above -->
 
@@ -54,6 +66,8 @@
 
     <menuitem name="Master Data" id="mail_invoice.master_data" parent="mail_invoice.menu_root"/>
 
+    <menuitem name="Configuration" id="mail_invoice.configuration" parent="mail_invoice.menu_root"/>
+
     <!-- actions -->
 
     <menuitem name="List" id="mail_invoice.menu_1_list" parent="mail_invoice.menu_1"
@@ -63,6 +77,10 @@
 
     <menuitem name="Mails" id="mail_invoice.menu_2_list" parent="mail_invoice.master_data"
               action="mail_invoice.action_window_mails"/>
+    <menuitem name="Invoices" id="mail_invoice.menu_3_list" parent="mail_invoice.master_data"
+              action="mail_invoice.action_window_invoices"/>
+    <menuitem name="InvoiceItems" id="mail_invoice.menu_4_list" parent="mail_invoice.master_data"
+              action="mail_invoice.action_window_invoice_items"/>
               
 
   </data>

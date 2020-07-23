@@ -27,6 +27,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/res_config_settings_views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

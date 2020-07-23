@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.mail_invoice</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside" >
+                    <div class="app_settings_block" data-string="Mail Invoice" string="Mail Invoice" data-key="mail_invoice" groups="stock.group_stock_manager">
+                        <h2>IMAP</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">IMAP Server</span>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                    <div class="text-muted">
+                                        Set the IMAP server to read emails from
+                                    </div>
+                                    <div class="content-group mt16">
+                                        <field name="mail_invoice_imap_server"/>
+                                    </div>
+                                </div>
+
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">IMAP Account</span>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                    <div class="text-muted">
+                                        Setup account
+                                    </div>
+                                    <div class="content-group mt16">
+                                        <field name="mail_invoice_imap_user"/>
+                                    </div>
+                                </div>
+
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">IMAP Password</span>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                    <div class="text-muted">
+                                        Setup password
+                                    </div>
+                                    <div class="content-group mt16">
+                                        <field name="mail_invoice_imap_pass"/>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="o_setting_left_pane">
+                                    <field name="mail_invoice_imap_server" />
+                                </div>
+                                <div class="o_setting_right_pane" id="barcode_settings">
+                                
+                                    <label for="mail_invoice_imap_server"/>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." groups="base.group_multi_company"/>
+                                    <div class="text-muted" name="stock_barcode">
+                                        Imap Server
+                                    </div>
+                                    <div class="content-group">
+                                        <div id="use_product_barcode"/>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_stock_config_settings" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'mail_invoice'}</field>
+        </record>
+
+        <menuitem id="menu_stock_config_settings" name="Configuration" parent="mail_invoice.configuration"
+            sequence="100" />
+        <menuitem id="menu_stock_general_settings" name="Settings" parent="menu_stock_config_settings"
+            sequence="0" action="action_stock_config_settings" />
+    </data>
+</odoo>
